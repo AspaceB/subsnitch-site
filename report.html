@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report a Subscription Trap &mdash; SubSnitch</title>
+<meta name="description" content="Report a website with hidden subscriptions or deceptive billing. Help us protect consumers from subscription traps.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F50D;</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f5f0e8;--black:#111;--red:#c41e1e;--gray:#666;--light-gray:#999;--serif:Georgia,'Times New Roman',Times,serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--cream);color:var(--black);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--black);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--red)}
+nav{padding:0 32px;border-bottom:1px solid var(--black)}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-right{display:flex;gap:20px;align-items:center}
+.nav-right a{color:var(--gray);font-size:.8rem;text-decoration:none;letter-spacing:.03em;text-transform:uppercase}
+.nav-right a:hover{color:var(--black)}
+
+main{max-width:600px;margin:0 auto;padding:80px 24px 60px}
+.dateline{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light-gray);margin-bottom:8px}
+h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+.subtitle{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gray);margin-bottom:32px}
+.rule{width:60px;height:1px;background:var(--black);margin-bottom:32px}
+
+.intro{font-size:.9rem;color:var(--gray);margin-bottom:32px;line-height:1.8}
+.intro strong{color:var(--black)}
+
+.form-group{margin-bottom:28px}
+.form-group label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.form-group .optional{color:var(--light-gray);font-weight:400}
+.form-group .hint{display:block;font-size:.75rem;color:var(--light-gray);margin-top:4px;font-style:italic}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea{width:100%;padding:10px 0;border:none;border-bottom:1px solid var(--black);background:transparent;color:var(--black);font-size:.9rem;font-family:var(--sans);transition:border-color .2s;outline:none}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-bottom-color:var(--red)}
+.form-group select{appearance:none;border-radius:0;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23111' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0 center}
+.form-group textarea{resize:vertical;min-height:140px;border:none;border-bottom:1px solid var(--black)}
+
+.btn{display:block;width:100%;background:var(--black);color:var(--cream);padding:14px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:var(--sans);transition:background .2s}
+.btn:hover{background:var(--red);color:#fff}
+
+.note{margin-top:24px;padding:20px;border:1px solid #ddd;font-size:.75rem;color:var(--gray);text-align:center;font-style:italic}
+
+.current-offenders{margin-top:48px;padding-top:32px;border-top:1px solid var(--black)}
+.current-offenders h2{font-family:var(--serif);font-size:1.2rem;font-weight:900;margin-bottom:16px}
+.current-offenders p{font-size:.85rem;color:var(--gray);margin-bottom:16px}
+.offender-list{list-style:none;font-size:.85rem}
+.offender-list li{padding:10px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.offender-domain{font-weight:700;color:var(--black);font-family:var(--sans)}
+.offender-reason{color:var(--gray);font-size:.8rem;text-align:right;flex:1}
+
+footer{border-top:1px solid var(--black);padding:24px;text-align:center;font-size:.7rem;color:var(--light-gray);max-width:800px;margin:0 auto}
+footer a{color:var(--light-gray);text-decoration:none}
+footer a:hover{color:var(--black)}
+
+@media(max-width:600px){
+  nav{padding:0 16px}
+  main{padding:48px 16px 40px}
+  .offender-list li{flex-direction:column;gap:2px}
+  .offender-reason{text-align:left}
+}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="/" class="logo">SubSnitch</a>
+  <div class="nav-right">
+    <a href="blog/">Blog</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="/">&larr; Home</a>
+  </div>
+</div></nav>
+
+<main>
+<div class="dateline">Investigation &middot; Community Intelligence</div>
+<h1>Report a Subscription Trap</h1>
+<p class="subtitle">Help us build the most comprehensive database of subscription offenders on the internet.</p>
+<div class="rule"></div>
+
+<p class="intro">
+  Spotted a website that sneaks in hidden subscriptions, uses confusing cancellation flows, or pre-checks subscription boxes? <strong>Report it here.</strong> Every verified report gets added to our offender database, which is automatically pushed to all SubSnitch users within 24 hours.
+</p>
+
+<form action="https://formspree.io/f/maqpdboq" method="POST">
+  <input type="hidden" name="_subject" value="[SubSnitch] New Offender Report">
+  <input type="hidden" name="form_type" value="offender_report">
+
+  <div class="form-group">
+    <label>Website Domain <span style="color:var(--red)">*</span></label>
+    <input type="text" name="domain" placeholder="e.g. example.com" required>
+    <span class="hint">The domain of the website with the subscription trap</span>
+  </div>
+
+  <div class="form-group">
+    <label>Trap Type <span style="color:var(--red)">*</span></label>
+    <select name="trap_type" required>
+      <option value="" disabled selected>Select the type of trap</option>
+      <option value="auto-renew">Auto-renewal without clear disclosure</option>
+      <option value="hidden-fees">Hidden fees or charges</option>
+      <option value="hard-to-cancel">Difficult or confusing cancellation</option>
+      <option value="pre-checked">Pre-checked subscription checkbox</option>
+      <option value="free-trial-trap">Free trial that converts to paid without warning</option>
+      <option value="fine-print">Important terms hidden in fine print</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Page URL <span class="optional">(optional)</span></label>
+    <input type="url" name="page_url" placeholder="https://example.com/checkout">
+    <span class="hint">The specific page where you encountered the trap</span>
+  </div>
+
+  <div class="form-group">
+    <label>Description <span style="color:var(--red)">*</span></label>
+    <textarea name="description" placeholder="Describe what happened. What subscription language did you see? Were charges clearly disclosed? How hard was it to find the cancellation option?" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Screenshot URL <span class="optional">(optional)</span></label>
+    <input type="url" name="screenshot_url" placeholder="https://imgur.com/...">
+    <span class="hint">Upload a screenshot to Imgur or similar and paste the link</span>
+  </div>
+
+  <div class="form-group">
+    <label>Your Email <span class="optional">(optional)</span></label>
+    <input type="email" name="email" placeholder="you@example.com">
+    <span class="hint">Only if you'd like us to follow up with you</span>
+  </div>
+
+  <button type="submit" class="btn">Submit Report</button>
+</form>
+
+<div class="note">Every report is reviewed by our team. Verified offenders are added to the SubSnitch database and pushed to all users automatically. You can also email reports directly to <a href="mailto:subsnitch@gmail.com">subsnitch@gmail.com</a>.</div>
+
+<div class="current-offenders">
+  <h2>Currently Flagged Offenders</h2>
+  <p>These sites are currently in our known offenders database, actively flagged for all SubSnitch users.</p>
+  <ul class="offender-list">
+    <li><span class="offender-domain">amazon.com</span><span class="offender-reason">Prime auto-enrolled during checkout</span></li>
+    <li><span class="offender-domain">adobe.com</span><span class="offender-reason">Early termination fees not disclosed (DOJ litigation)</span></li>
+    <li><span class="offender-domain">match.com</span><span class="offender-reason">FTC settlement &mdash; deceptive subscription practices</span></li>
+    <li><span class="offender-domain">chegg.com</span><span class="offender-reason">FTC action &mdash; confusing cancellation</span></li>
+    <li><span class="offender-domain">angi.com</span><span class="offender-reason">Auto-enrolled membership complaints</span></li>
+    <li><span class="offender-domain">audible.com</span><span class="offender-reason">Rollover credit confusion during trial</span></li>
+    <li><span class="offender-domain">resume-now.com</span><span class="offender-reason">Hidden recurring subscription charges</span></li>
+    <li><span class="offender-domain">nytimes.com</span><span class="offender-reason">Aggressive paywall-to-subscription conversion</span></li>
+    <li><span class="offender-domain">hulu.com</span><span class="offender-reason">Add-on charges not clearly disclosed</span></li>
+    <li><span class="offender-domain">planet-fitness.com</span><span class="offender-reason">Notoriously difficult cancellation</span></li>
+    <li><span class="offender-domain">siriusxm.com</span><span class="offender-reason">FTC complaints about cancellation difficulty</span></li>
+    <li><span class="offender-domain">mcafee.com</span><span class="offender-reason">Auto-renewal complaints</span></li>
+  </ul>
+</div>
+</main>
+
+<footer>&copy; 2026 SubSnitch &middot; <a href="privacy.html">Privacy</a> &middot; <a href="about.html">About</a> &middot; <a href="feedback.html">Feedback</a> &middot; <a href="mailto:subsnitch@gmail.com">subsnitch@gmail.com</a></footer>
+</body>
+</html>
