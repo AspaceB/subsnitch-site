@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Are Subscription Traps? A Complete Guide to Protecting Your Wallet — SubSnitch</title>
+<meta name="description" content="Learn what subscription traps are, how companies use auto-renewals and dark patterns to charge you, and how to protect yourself from unwanted recurring charges.">
+<meta property="og:title" content="What Are Subscription Traps? A Complete Guide to Protecting Your Wallet">
+<meta property="og:description" content="Learn what subscription traps are, how companies use auto-renewals and dark patterns to charge you, and how to protect yourself.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F50D;</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:rgba(255,255,255,.06);--text:#ccc;--text2:#888;--blue:#3b82f6;--red:#ef4444;--blue-glow:0 0 40px rgba(59,130,246,.3)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none;transition:color .2s}
+a:hover{color:#60a5fa}
+
+.bg-grid{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0}
+.bg-aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-aurora::before,.bg-aurora::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:.15;animation:aurora 12s ease-in-out infinite alternate}
+.bg-aurora::before{background:var(--blue);top:-200px;left:-100px}
+.bg-aurora::after{background:var(--red);bottom:-200px;right:-100px;animation-delay:-6s}
+@keyframes aurora{0%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,40px) scale(1.2)}100%{transform:translate(-40px,80px) scale(.9)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,.7);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;font-size:1.25rem;display:flex;align-items:center;gap:8px;color:#fff}
+.logo svg{width:28px;height:28px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:var(--text2);font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:10px;font-weight:600;font-size:.875rem;border:none;cursor:pointer;transition:all .25s}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:var(--blue-glow)}
+.btn-primary:hover{background:#2563eb;box-shadow:0 0 60px rgba(59,130,246,.45);transform:translateY(-1px)}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+article{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:120px 24px 60px}
+.article-meta{font-size:.8rem;color:var(--text2);margin-bottom:32px}
+article h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
+article h2{font-size:1.3rem;color:#fff;margin:48px 0 16px;font-weight:700}
+article h3{font-size:1.1rem;color:#fff;margin:32px 0 12px;font-weight:700}
+article p{font-size:.925rem;margin-bottom:16px;line-height:1.8}
+article ul,article ol{padding-left:24px;margin-bottom:16px}
+article li{font-size:.925rem;margin-bottom:8px;line-height:1.7}
+article blockquote{border-left:3px solid var(--blue);padding:16px 24px;margin:32px 0;background:rgba(59,130,246,.04);border-radius:0 12px 12px 0;font-style:italic;color:#ddd}
+article strong{color:#ddd}
+
+.share-section{margin:48px 0;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.share-section h3{font-size:.9rem;color:#fff;margin-bottom:12px}
+.share-links{display:flex;gap:12px}
+.share-links a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:.8rem;font-weight:600;border:1px solid var(--border);color:var(--text);transition:all .2s}
+.share-links a:hover{border-color:rgba(59,130,246,.3);color:#fff;background:rgba(255,255,255,.04)}
+
+.related{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 24px 40px}
+.related h3{font-size:1.1rem;color:#fff;margin-bottom:20px;font-weight:700}
+.related-grid{display:grid;gap:16px}
+.related-card{display:block;padding:20px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.02);transition:all .25s;text-decoration:none}
+.related-card:hover{border-color:rgba(59,130,246,.2);background:rgba(255,255,255,.04)}
+.related-card .r-title{font-size:.9rem;color:#fff;font-weight:600;margin-bottom:4px}
+.related-card .r-meta{font-size:.75rem;color:var(--text2)}
+
+.cta-banner{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 24px 60px}
+.cta-box{padding:48px 32px;border-radius:20px;background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(239,68,68,.05));border:1px solid rgba(59,130,246,.15);text-align:center}
+.cta-box h2{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:8px}
+.cta-box p{color:var(--text2);margin-bottom:24px;font-size:.9rem}
+.cta-box .btn-primary{font-size:.9rem;padding:12px 28px;border-radius:10px}
+
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48px 24px;max-width:1200px;margin:0 auto}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-links{display:flex;gap:24px;list-style:none}
+.footer-links a{color:var(--text2);font-size:.8rem}
+.footer-links a:hover{color:#fff}
+.footer-note{font-size:.75rem;color:#555}
+
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);padding:24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-aurora"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg>
+      SubSnitch
+    </a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#how-it-works">How it Works</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/feedback.html">Feedback</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="https://chromewebstore.google.com" class="btn btn-primary">Add to Chrome</a></li>
+    </ul>
+  </div>
+</nav>
+
+<article>
+  <h1>What Are Subscription Traps? A Complete Guide to Protecting Your Wallet</h1>
+  <div class="article-meta">March 10, 2026 &middot; 6 min read</div>
+
+  <p>You sign up for a "free trial." Seven days later, your credit card is charged $49.99. You try to cancel, but the cancellation page is buried five menus deep, requires a phone call, or only works during specific hours. Sound familiar? You've fallen into a subscription trap.</p>
+
+  <p>Subscription traps are one of the fastest-growing consumer complaints in the United States and Europe. They cost consumers an estimated <strong>$1.6 billion per year</strong> in unwanted charges, and the problem is only getting worse as more businesses shift to recurring revenue models.</p>
+
+  <h2>What Exactly Is a Subscription Trap?</h2>
+
+  <p>A subscription trap is any business practice that enrolls consumers in recurring payments through deceptive, misleading, or obscured means. They generally fall into three categories:</p>
+
+  <h3>1. Auto-Renewal Tricks</h3>
+  <p>You purchase a one-time product or service, but buried in the fine print is a clause that automatically enrolls you in a recurring subscription. The renewal terms are intentionally hidden or downplayed, and the charge appears on your card weeks or months later when you've already forgotten the original purchase.</p>
+
+  <h3>2. Free Trial Conversions</h3>
+  <p>A company offers a "free trial" but requires your credit card upfront. The trial period is intentionally short (sometimes as brief as 3 days), and the conversion to a paid plan happens automatically with no reminder email. The paid subscription is often significantly more expensive than you'd expect.</p>
+
+  <h3>3. Hidden Recurring Charges</h3>
+  <p>Pre-checked checkboxes on checkout pages silently add recurring charges to your order. These are designed to blend into the page layout so you don't notice them. A $29 product purchase quietly becomes $29 plus $9.99/month for a "protection plan" you never asked for.</p>
+
+  <h2>Real-World Examples</h2>
+
+  <p>Subscription traps aren't limited to shady websites. Some of the world's biggest companies have been caught using these tactics:</p>
+
+  <p><strong>Amazon Prime checkout upsell.</strong> During the checkout process, Amazon has repeatedly been criticized for using confusing UI patterns that steer customers into signing up for Prime. The "Continue without Prime" option is intentionally de-emphasized compared to the "Start your free trial" button, leading millions of people to sign up for recurring charges they didn't intend.</p>
+
+  <p><strong>Adobe's early termination fee.</strong> Adobe's Creative Cloud subscriptions come with an annual commitment, even when billed monthly. If you cancel before the year is up, you're hit with an early termination fee equal to 50% of your remaining contract. This detail is buried in the terms and catches countless users off guard.</p>
+
+  <p><strong>Gym membership contracts.</strong> Fitness chains like Planet Fitness and LA Fitness have long been criticized for making sign-up easy but cancellation extremely difficult. Many require in-person visits or certified letters to cancel, and continue charging members who believe they've already cancelled.</p>
+
+  <h2>The FTC is Fighting Back</h2>
+
+  <p>The Federal Trade Commission has taken action against several major companies for deceptive subscription practices:</p>
+
+  <ul>
+    <li><strong>Match.com</strong> was charged by the FTC for using fake love interest notifications to trick users into purchasing or renewing subscriptions. The company allegedly used messages from accounts the company had already flagged as fraudulent.</li>
+    <li><strong>Chegg</strong> settled with the FTC over allegations that the textbook rental company made it easy to sign up for subscriptions but intentionally difficult to cancel them, requiring multiple steps designed to discourage users from completing the process.</li>
+    <li><strong>ABCMouse</strong> (Age of Learning) paid $10 million to settle FTC charges that the children's education app made it nearly impossible for parents to cancel subscriptions, despite advertising "easy cancellation."</li>
+  </ul>
+
+  <h2>The FTC's "Click to Cancel" Rule</h2>
+
+  <p>In response to the growing problem, the FTC finalized its <strong>"Click to Cancel" rule</strong>, which requires businesses to make cancellation as easy as sign-up. Under this rule:</p>
+
+  <ul>
+    <li>If you can sign up online, you must be able to cancel online</li>
+    <li>Companies cannot require phone calls to cancel if sign-up was done digitally</li>
+    <li>Businesses must clearly disclose all material terms before charging consumers</li>
+    <li>Companies must obtain express informed consent before converting free trials to paid subscriptions</li>
+  </ul>
+
+  <p>While this rule is a significant step forward, enforcement takes time, and many companies continue to push the boundaries of what's legal.</p>
+
+  <h2>How to Protect Yourself</h2>
+
+  <p>Until regulation fully catches up with the problem, consumers need to take proactive steps:</p>
+
+  <p><strong>Read the fine print.</strong> Before clicking any "Start Free Trial" or "Buy Now" button, look for recurring charge language. Check for pre-checked checkboxes. Read the text below the button, not just the button itself.</p>
+
+  <p><strong>Use virtual cards.</strong> Services like Privacy.com let you create single-use or merchant-locked virtual credit cards. Set a spending limit of $1 for free trials, so even if you forget to cancel, the charge will be declined.</p>
+
+  <p><strong>Set calendar reminders.</strong> When you sign up for any trial, immediately set a calendar reminder for 2 days before it expires. Don't rely on the company to remind you.</p>
+
+  <p><strong>Check your bank statements monthly.</strong> Review every recurring charge. If you don't recognize a charge, investigate immediately. Many banks allow you to dispute charges within 60 days.</p>
+
+  <p><strong>Use SubSnitch.</strong> SubSnitch is a free Chrome extension that scans checkout pages in real time, detecting subscription traps, pre-checked boxes, and hidden recurring charges before you click "Buy." It works automatically in the background, giving you a clear warning whenever a page uses deceptive subscription practices.</p>
+
+  <blockquote>"The best defense against subscription traps isn't cancelling after you've been charged — it's catching them before you sign up in the first place."</blockquote>
+
+  <h2>The Bottom Line</h2>
+
+  <p>Subscription traps are a billion-dollar industry built on exploiting consumer inattention. While regulators are starting to crack down, the burden of protection still falls largely on consumers. By staying informed, using the right tools, and adopting smart habits, you can keep your wallet safe from unwanted recurring charges.</p>
+
+  <div class="share-section">
+    <h3>Share this article</h3>
+    <div class="share-links">
+      <a href="https://twitter.com/intent/tweet?text=What%20Are%20Subscription%20Traps%3F%20A%20Complete%20Guide&url=https://subsnitch.app/blog/subscription-traps-what-they-are-and-how-to-avoid-them.html" target="_blank" rel="noopener">Share on X</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://subsnitch.app/blog/subscription-traps-what-they-are-and-how-to-avoid-them.html" target="_blank" rel="noopener">Share on LinkedIn</a>
+    </div>
+  </div>
+</article>
+
+<div class="related">
+  <h3>Related Articles</h3>
+  <div class="related-grid">
+    <a href="/blog/dark-patterns-in-checkout-pages-2026.html" class="related-card">
+      <div class="r-title">Dark Patterns in Checkout Pages: What Every Online Shopper Should Know in 2026</div>
+      <div class="r-meta">March 8, 2026 &middot; 5 min read</div>
+    </a>
+    <a href="/blog/free-trial-to-paid-how-companies-trick-you.html" class="related-card">
+      <div class="r-title">Free Trial to Paid: How Companies Quietly Start Charging You</div>
+      <div class="r-meta">March 5, 2026 &middot; 4 min read</div>
+    </a>
+    <a href="/blog/why-we-built-subsnitch.html" class="related-card">
+      <div class="r-title">Why We Built SubSnitch: Our Mission to End Subscription Traps</div>
+      <div class="r-meta">March 1, 2026 &middot; 3 min read</div>
+    </a>
+  </div>
+</div>
+
+<div class="cta-banner">
+  <div class="cta-box">
+    <h2>Protect yourself from subscription traps</h2>
+    <p>Add SubSnitch to Chrome and get alerted before you get charged.</p>
+    <a href="https://chromewebstore.google.com" class="btn btn-primary">Add SubSnitch to Chrome</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo" style="font-size:1rem">
+      <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg>
+      SubSnitch
+    </div>
+    <ul class="footer-links">
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/feedback.html">Feedback</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
+    </ul>
+    <div class="footer-note">Built with privacy in mind. No data ever leaves your browser.</div>
+  </div>
+</footer>
+</body>
+</html>

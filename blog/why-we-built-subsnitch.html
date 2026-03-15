@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why We Built SubSnitch: Our Mission to End Subscription Traps — SubSnitch</title>
+<meta name="description" content="The personal story behind SubSnitch — how a frustrating subscription experience led us to build a tool that protects consumers before they get charged.">
+<meta property="og:title" content="Why We Built SubSnitch: Our Mission to End Subscription Traps">
+<meta property="og:description" content="The personal story behind SubSnitch — how a frustrating subscription trap led us to build a tool that protects consumers.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F50D;</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:rgba(255,255,255,.06);--text:#ccc;--text2:#888;--blue:#3b82f6;--red:#ef4444;--blue-glow:0 0 40px rgba(59,130,246,.3)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none;transition:color .2s}
+a:hover{color:#60a5fa}
+
+.bg-grid{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0}
+.bg-aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-aurora::before,.bg-aurora::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:.15;animation:aurora 12s ease-in-out infinite alternate}
+.bg-aurora::before{background:var(--blue);top:-200px;left:-100px}
+.bg-aurora::after{background:var(--red);bottom:-200px;right:-100px;animation-delay:-6s}
+@keyframes aurora{0%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,40px) scale(1.2)}100%{transform:translate(-40px,80px) scale(.9)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,.7);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;font-size:1.25rem;display:flex;align-items:center;gap:8px;color:#fff}
+.logo svg{width:28px;height:28px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:var(--text2);font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:10px;font-weight:600;font-size:.875rem;border:none;cursor:pointer;transition:all .25s}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:var(--blue-glow)}
+.btn-primary:hover{background:#2563eb;box-shadow:0 0 60px rgba(59,130,246,.45);transform:translateY(-1px)}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+article{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:120px 24px 60px}
+.article-meta{font-size:.8rem;color:var(--text2);margin-bottom:32px}
+article h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
+article h2{font-size:1.3rem;color:#fff;margin:48px 0 16px;font-weight:700}
+article h3{font-size:1.1rem;color:#fff;margin:32px 0 12px;font-weight:700}
+article p{font-size:.925rem;margin-bottom:16px;line-height:1.8}
+article ul,article ol{padding-left:24px;margin-bottom:16px}
+article li{font-size:.925rem;margin-bottom:8px;line-height:1.7}
+article blockquote{border-left:3px solid var(--blue);padding:16px 24px;margin:32px 0;background:rgba(59,130,246,.04);border-radius:0 12px 12px 0;font-style:italic;color:#ddd}
+article strong{color:#ddd}
+
+.share-section{margin:48px 0;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.share-section h3{font-size:.9rem;color:#fff;margin-bottom:12px}
+.share-links{display:flex;gap:12px}
+.share-links a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:.8rem;font-weight:600;border:1px solid var(--border);color:var(--text);transition:all .2s}
+.share-links a:hover{border-color:rgba(59,130,246,.3);color:#fff;background:rgba(255,255,255,.04)}
+
+.related{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 24px 40px}
+.related h3{font-size:1.1rem;color:#fff;margin-bottom:20px;font-weight:700}
+.related-grid{display:grid;gap:16px}
+.related-card{display:block;padding:20px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.02);transition:all .25s;text-decoration:none}
+.related-card:hover{border-color:rgba(59,130,246,.2);background:rgba(255,255,255,.04)}
+.related-card .r-title{font-size:.9rem;color:#fff;font-weight:600;margin-bottom:4px}
+.related-card .r-meta{font-size:.75rem;color:var(--text2)}
+
+.cta-banner{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 24px 60px}
+.cta-box{padding:48px 32px;border-radius:20px;background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(239,68,68,.05));border:1px solid rgba(59,130,246,.15);text-align:center}
+.cta-box h2{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:8px}
+.cta-box p{color:var(--text2);margin-bottom:24px;font-size:.9rem}
+.cta-box .btn-primary{font-size:.9rem;padding:12px 28px;border-radius:10px}
+
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48px 24px;max-width:1200px;margin:0 auto}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-links{display:flex;gap:24px;list-style:none}
+.footer-links a{color:var(--text2);font-size:.8rem}
+.footer-links a:hover{color:#fff}
+.footer-note{font-size:.75rem;color:#555}
+
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);padding:24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-aurora"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg>
+      SubSnitch
+    </a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#how-it-works">How it Works</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/feedback.html">Feedback</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="https://chromewebstore.google.com" class="btn btn-primary">Add to Chrome</a></li>
+    </ul>
+  </div>
+</nav>
+
+<article>
+  <h1>Why We Built SubSnitch: Our Mission to End Subscription Traps</h1>
+  <div class="article-meta">March 1, 2026 &middot; 3 min read</div>
+
+  <p>It started with a fitness app. I wanted to try a 7-day workout program, so I downloaded an app that looked promising, tapped "Start Free Trial," and entered my card details without thinking twice. The app was fine, nothing special. I used it twice and forgot about it.</p>
+
+  <p>Three weeks later, I noticed a $49.99 charge on my credit card. Then another $49.99 the month after that. By the time I caught it, I'd been charged nearly $150 for an app I'd used twice. Cancelling required emailing their support team and waiting 5 business days for a response. The refund? "Not eligible per our terms of service."</p>
+
+  <p>I'm a software developer. I build things for a living. And even I fell for it.</p>
+
+  <h2>The Problem Nobody Was Solving</h2>
+
+  <p>After that experience, I looked for tools that could prevent it from happening again. What I found was a landscape of products designed to help <em>after</em> the damage was done. Subscription trackers that scan your bank statements and show you what you're already paying for. Bill negotiation services that try to get refunds on charges you've already incurred. Budgeting apps that categorize your existing subscriptions.</p>
+
+  <p>All of these tools share the same fundamental limitation: they only work after you've already been charged. They're reactive, not proactive.</p>
+
+  <p>What I couldn't find was something that worked <em>before</em> the moment of sign-up. Something that would tap me on the shoulder while I was on a checkout page and say, "Hey, there's a pre-checked box here that's going to charge you $29.99/month. Did you see it?"</p>
+
+  <p>That tool didn't exist. So we built it.</p>
+
+  <h2>How SubSnitch Works Differently</h2>
+
+  <p><strong>Real-time, at the point of decision.</strong> SubSnitch doesn't wait until after you've been charged. It scans checkout pages as they load, analyzing the DOM for known deceptive patterns. When it finds something — a pre-checked subscription checkbox, a hidden recurring charge buried in fine print, a misleadingly short free trial — it shows you a clear, prominent warning before you click "Buy."</p>
+
+  <p><strong>Privacy-first by design.</strong> We built SubSnitch with a simple rule: no data leaves your browser. Ever. All scanning and analysis happens locally using JavaScript. There are no servers collecting your browsing data, no analytics tracking your activity, no accounts to create. Your browsing habits are none of our business.</p>
+
+  <p><strong>Free, and staying that way.</strong> A tool designed to protect people from predatory charges shouldn't itself be a subscription. SubSnitch is free to use, and it always will be. Consumer protection isn't a premium feature.</p>
+
+  <h2>Our Vision</h2>
+
+  <p>We believe the internet should be honest. When you buy something online, you should know exactly what you're paying for, how much it costs, and what you're committing to. That shouldn't require a law degree or pixel-level examination of checkout pages.</p>
+
+  <p>Right now, the burden of vigilance falls entirely on consumers. Companies spend millions optimizing their checkout flows to maximize revenue through confusion, and individual shoppers are expected to catch every trick. That's an unfair fight.</p>
+
+  <p>SubSnitch is our attempt to level the playing field. We want to build a future where subscription traps don't work — not because every company has been regulated into compliance, but because consumers have the tools to see through them instantly.</p>
+
+  <p>We're starting with a Chrome extension. But our vision extends beyond that. We want to build the most comprehensive dark pattern detection system in the world — one that works across browsers, across platforms, and across the ever-evolving landscape of deceptive design.</p>
+
+  <p>Every subscription trap that SubSnitch catches is money that stays in someone's pocket instead of flowing to a company that didn't earn it honestly. That's what gets us up in the morning.</p>
+
+  <blockquote>"The best way to cancel an unwanted subscription is to never sign up for it in the first place."</blockquote>
+
+  <p>If that mission resonates with you, <a href="https://chromewebstore.google.com">give SubSnitch a try</a>. It takes one click to install, and it starts protecting you immediately. No account needed, no data collected, no strings attached.</p>
+
+  <div class="share-section">
+    <h3>Share this article</h3>
+    <div class="share-links">
+      <a href="https://twitter.com/intent/tweet?text=Why%20We%20Built%20SubSnitch%3A%20Our%20Mission%20to%20End%20Subscription%20Traps&url=https://subsnitch.app/blog/why-we-built-subsnitch.html" target="_blank" rel="noopener">Share on X</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://subsnitch.app/blog/why-we-built-subsnitch.html" target="_blank" rel="noopener">Share on LinkedIn</a>
+    </div>
+  </div>
+</article>
+
+<div class="related">
+  <h3>Related Articles</h3>
+  <div class="related-grid">
+    <a href="/blog/subscription-traps-what-they-are-and-how-to-avoid-them.html" class="related-card">
+      <div class="r-title">What Are Subscription Traps? A Complete Guide to Protecting Your Wallet</div>
+      <div class="r-meta">March 10, 2026 &middot; 6 min read</div>
+    </a>
+    <a href="/blog/dark-patterns-in-checkout-pages-2026.html" class="related-card">
+      <div class="r-title">Dark Patterns in Checkout Pages: What Every Online Shopper Should Know in 2026</div>
+      <div class="r-meta">March 8, 2026 &middot; 5 min read</div>
+    </a>
+    <a href="/blog/free-trial-to-paid-how-companies-trick-you.html" class="related-card">
+      <div class="r-title">Free Trial to Paid: How Companies Quietly Start Charging You</div>
+      <div class="r-meta">March 5, 2026 &middot; 4 min read</div>
+    </a>
+  </div>
+</div>
+
+<div class="cta-banner">
+  <div class="cta-box">
+    <h2>Protect yourself from subscription traps</h2>
+    <p>Add SubSnitch to Chrome and get alerted before you get charged.</p>
+    <a href="https://chromewebstore.google.com" class="btn btn-primary">Add SubSnitch to Chrome</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo" style="font-size:1rem">
+      <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg>
+      SubSnitch
+    </div>
+    <ul class="footer-links">
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/feedback.html">Feedback</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
+    </ul>
+    <div class="footer-note">Built with privacy in mind. No data ever leaves your browser.</div>
+  </div>
+</footer>
+</body>
+</html>

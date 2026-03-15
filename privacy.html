@@ -31,6 +31,8 @@ footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;fo
 <body>
 <nav><div class="nav-inner">
   <a href="/" class="logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg> SubSnitch</a>
+  <a href="feedback.html" class="back" style="margin-right:16px">Feedback</a>
+  <a href="blog/" class="back" style="margin-right:16px">Blog</a>
   <a href="/" class="back">&larr; Back to Home</a>
 </div></nav>
 
@@ -53,13 +55,13 @@ footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;fo
   <li>Displays warnings directly in your browser</li>
   <li>Stores your preferences using <code>chrome.storage.local</code> only</li>
 </ul>
-<p>No data ever leaves your browser. No network requests are made by the extension except to check for pattern database updates from our public GitHub repository.</p>
+<p>No data ever leaves your browser. No network requests are made by the extension except to check for pattern database updates.</p>
 
 <h2>Local Storage</h2>
 <p>SubSnitch uses <code>chrome.storage.local</code> to store:</p>
 <ul>
   <li>Your extension preferences (e.g., notification settings)</li>
-  <li>The dark pattern signature database (downloaded from our open-source repo)</li>
+  <li>The dark pattern signature database (updated periodically)</li>
   <li>Sites you have explicitly whitelisted</li>
 </ul>
 <p>This data never leaves your device and can be cleared at any time by uninstalling the extension.</p>
@@ -70,16 +72,16 @@ footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;fo
 <h2>Gmail Scanner</h2>
 <p>The optional Gmail scanning feature, if enabled, processes your emails entirely within your browser. Email content is never sent to our servers or any third party. The feature uses Google's OAuth solely to grant read access within your local browser session.</p>
 
-<h2>Open Source</h2>
-<p>SubSnitch is fully open source. You can audit every line of code at <a href="https://github.com/AspaceB/SubSnitch">github.com/AspaceB/SubSnitch</a>.</p>
+<h2>Transparency</h2>
+<p>SubSnitch is built with transparency as a core principle. Learn more about our work at <a href="https://github.com/AspaceB">github.com/AspaceB</a>.</p>
 
 <h2>Changes to This Policy</h2>
 <p>If we ever change this policy, we will update this page and the "last updated" date above. Given our commitment to zero data collection, we don't anticipate significant changes.</p>
 
 <h2>Contact</h2>
-<p>Questions or concerns? Reach us at <a href="mailto:support@subsnitch.app">support@subsnitch.app</a>.</p>
+<p>Questions or concerns? Reach us at <a href="mailto:subsnitch@gmail.com">subsnitch@gmail.com</a>.</p>
 </main>
 
-<footer>&copy; 2026 SubSnitch. Built with privacy in mind.</footer>
+<footer>&copy; 2026 SubSnitch. Built with privacy in mind. &middot; <a href="feedback.html" style="color:#888">Feedback</a></footer>
 </body>
 </html>
