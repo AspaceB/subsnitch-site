@@ -3,54 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — SubSnitch</title>
+<title>About &mdash; SubSnitch</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F50D;</text></svg>">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0a;--surface:#111;--border:rgba(255,255,255,.06);--text:#ccc;--text2:#888;--blue:#3b82f6;--red:#ef4444}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--blue);text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;backdrop-filter:blur(20px);background:rgba(10,10,10,.7);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-weight:700;font-size:1.15rem;color:#fff;display:flex;align-items:center;gap:8px}
-.logo svg{width:24px;height:24px}
-nav a.back{color:var(--text2);font-size:.875rem}
-nav a.back:hover{color:#fff}
-main{max-width:800px;margin:0 auto;padding:120px 24px 80px}
-h1{font-size:2rem;font-weight:800;color:#fff;margin-bottom:32px;letter-spacing:-.02em}
-h2{font-size:1.25rem;color:#fff;margin:48px 0 16px;font-weight:700}
-p{font-size:.925rem;margin-bottom:16px}
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin:40px 0}
-.stat-item{background:var(--surface);padding:32px 24px;text-align:center}
-.stat-item .num{font-size:1.5rem;font-weight:800;color:#fff}
-.stat-item .label{font-size:.75rem;color:var(--text2);margin-top:4px}
-blockquote{border-left:3px solid var(--blue);padding:16px 24px;margin:32px 0;background:rgba(59,130,246,.04);border-radius:0 12px 12px 0;font-style:italic;color:#ddd}
-.cta{margin-top:48px;padding:40px;border-radius:16px;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.12);text-align:center}
-.cta h3{color:#fff;font-size:1.1rem;margin-bottom:8px}
-.cta p{color:var(--text2);margin-bottom:20px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:10px;font-weight:600;font-size:.875rem;background:var(--blue);color:#fff;box-shadow:0 0 30px rgba(59,130,246,.25);transition:all .25s}
-.btn:hover{background:#2563eb;transform:translateY(-1px)}
-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-size:.75rem;color:#555}
-@media(max-width:600px){.stat-row{grid-template-columns:1fr}}
+:root{--cream:#f5f0e8;--white:#fffdf9;--black:#111;--red:#c41e1e;--gray:#666;--light-gray:#999;--serif:Georgia,'Times New Roman',Times,serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--cream);color:var(--black);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--black);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--red)}
+nav{padding:0 32px;border-bottom:1px solid var(--black)}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-right{display:flex;gap:20px;align-items:center}
+.nav-right a{color:var(--gray);font-size:.8rem;text-decoration:none;letter-spacing:.03em;text-transform:uppercase}
+.nav-right a:hover{color:var(--black)}
+
+main{max-width:700px;margin:0 auto;padding:80px 24px 60px}
+.dateline{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light-gray);margin-bottom:8px}
+h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:32px}
+.rule{width:60px;height:1px;background:var(--black);margin-bottom:32px}
+
+/* Drop cap */
+.drop-cap::first-letter{font-family:var(--serif);float:left;font-size:4.5rem;line-height:.75;font-weight:900;margin-right:12px;margin-top:6px;color:var(--red)}
+
+p{font-size:.95rem;margin-bottom:16px;line-height:1.8;color:#333}
+h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin:48px 0 16px;color:var(--black)}
+strong{color:var(--black)}
+
+.pull-quote{font-family:var(--serif);font-size:1.5rem;font-style:italic;color:var(--black);text-align:center;padding:40px 0;border-top:1px solid var(--black);border-bottom:1px solid var(--black);margin:40px 0;line-height:1.4}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--black);margin:40px 0}
+.stat-item{padding:32px 24px;text-align:center;border-right:1px solid var(--black)}
+.stat-item:last-child{border-right:none}
+.stat-item .num{font-family:var(--serif);font-size:1.8rem;font-weight:900;color:var(--red)}
+.stat-item .label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light-gray);margin-top:4px}
+
+.cta{margin-top:60px;padding:48px;border:1px solid var(--black);text-align:center}
+.cta h3{font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.cta p{color:var(--gray);margin-bottom:24px}
+.btn{display:inline-block;background:var(--black);color:var(--cream);padding:12px 32px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--red);color:#fff}
+
+footer{border-top:1px solid var(--black);padding:24px;text-align:center;font-size:.7rem;color:var(--light-gray);max-width:800px;margin:0 auto}
+footer a{color:var(--light-gray);text-decoration:none}
+footer a:hover{color:var(--black)}
+@media(max-width:600px){.stat-row{grid-template-columns:1fr}.stat-item{border-right:none;border-bottom:1px solid var(--black)}.stat-item:last-child{border-bottom:none}}
 </style>
 </head>
 <body>
 <nav><div class="nav-inner">
-  <a href="/" class="logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg> SubSnitch</a>
-  <a href="feedback.html" class="back" style="margin-right:16px">Feedback</a>
-  <a href="blog/" class="back" style="margin-right:16px">Blog</a>
-  <a href="/" class="back">&larr; Back to Home</a>
+  <a href="/" class="logo">SubSnitch</a>
+  <div class="nav-right">
+    <a href="feedback.html">Feedback</a>
+    <a href="blog/">Blog</a>
+    <a href="/">&larr; Home</a>
+  </div>
 </div></nav>
 
 <main>
+<div class="dateline">About &middot; SubSnitch &middot; 2026</div>
 <h1>About SubSnitch</h1>
+<div class="rule"></div>
 
-<p>Every day, millions of people unknowingly sign up for subscriptions they never wanted. A pre-checked checkbox here, a "free trial" that auto-renews there, fine print designed to be invisible. These aren't accidents — they're carefully engineered dark patterns built to extract money from people who aren't paying close enough attention.</p>
+<p class="drop-cap">Every day, millions of people unknowingly sign up for subscriptions they never wanted. A pre-checked checkbox here, a "free trial" that auto-renews there, fine print designed to be invisible. These are not accidents &mdash; they are carefully engineered dark patterns built to extract money from people who are not paying close enough attention.</p>
 
-<p>We think that's wrong.</p>
+<p>We think that is wrong.</p>
 
 <h2>The Problem</h2>
-<p>Dark patterns in subscription flows have become an epidemic. Companies spend millions optimizing their checkout pages — not to make them clearer, but to make them more deceptive. Pre-checked boxes that add recurring charges. "Free trial" buttons in large text with "$49.99/month after 3 days" in 8px gray-on-gray font. Cancellation flows that require phone calls during narrow business hours.</p>
+<p>Dark patterns in subscription flows have become an epidemic. Companies spend millions optimizing their checkout pages &mdash; not to make them clearer, but to make them more deceptive. Pre-checked boxes that add recurring charges. "Free trial" buttons in large text with "$49.99/month after 3 days" in 8px gray-on-gray font. Cancellation flows that require phone calls during narrow business hours.</p>
 
 <p>The FTC has taken action against some of the worst offenders, but regulation moves slowly. Consumers need protection now.</p>
 
@@ -63,27 +83,27 @@ footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;fo
 <h2>The Solution</h2>
 <p>SubSnitch is a Chrome extension that acts as your personal dark pattern detector. It scans checkout pages in real time, analyzing the DOM for known deceptive patterns: pre-checked subscription boxes, hidden recurring charges in fine print, misleading "free" offers, and more.</p>
 
-<p>When SubSnitch finds something suspicious, it shows you a clear, prominent warning — before you click "Buy." No more discovering mystery charges on your credit card statement.</p>
+<p>When SubSnitch finds something suspicious, it shows you a clear, prominent warning &mdash; before you click "Buy." No more discovering mystery charges on your credit card statement.</p>
 
-<blockquote>"The best way to cancel an unwanted subscription is to never sign up for it in the first place."</blockquote>
+<div class="pull-quote">"The best way to cancel an unwanted subscription is to never sign up for it in the first place."</div>
 
 <h2>Our Principles</h2>
-<p><strong>Privacy first.</strong> SubSnitch processes everything locally in your browser. We don't collect data, run analytics, or track you. Your browsing is your business.</p>
+<p><strong>Privacy first.</strong> SubSnitch processes everything locally in your browser. We do not collect data, run analytics, or track you. Your browsing is your business.</p>
 
-<p><strong>Free forever.</strong> Consumer protection shouldn't be a premium feature. SubSnitch is and will always be free to use.</p>
+<p><strong>Free forever.</strong> Consumer protection should not be a premium feature. SubSnitch is and will always be free to use.</p>
 
 <p><strong>Built with transparency.</strong> We believe a tool designed to promote honesty should itself be honest. Our practices, policies, and principles are all out in the open.</p>
 
 <h2>Who We Are</h2>
-<p>SubSnitch is built by a small team passionate about consumer protection. We believe the internet should be fair, and that nobody should lose money to deceptive design. Learn more about what we do at <a href="https://github.com/AspaceB">github.com/AspaceB</a>.</p>
+<p>SubSnitch is built by a small team passionate about consumer protection. We believe the internet should be fair, and that nobody should lose money to deceptive design. For questions or concerns, reach us at <a href="mailto:subsnitch@gmail.com">subsnitch@gmail.com</a>.</p>
 
 <div class="cta">
   <h3>Join the fight against dark patterns</h3>
   <p>Install SubSnitch and help build a more honest internet.</p>
-  <a href="https://chromewebstore.google.com" class="btn">Add to Chrome — Free</a>
+  <a href="https://chromewebstore.google.com" class="btn">Add to Chrome &mdash; Free</a>
 </div>
 </main>
 
-<footer>&copy; 2026 SubSnitch. Built with privacy in mind. &middot; <a href="feedback.html" style="color:#888">Feedback</a></footer>
+<footer>&copy; 2026 SubSnitch &middot; <a href="privacy.html">Privacy</a> &middot; <a href="feedback.html">Feedback</a> &middot; <a href="mailto:subsnitch@gmail.com">subsnitch@gmail.com</a></footer>
 </body>
 </html>

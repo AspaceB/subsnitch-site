@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Trial to Paid: How Companies Quietly Start Charging You — SubSnitch</title>
+<title>Free Trial to Paid: How Companies Quietly Start Charging You &mdash; SubSnitch</title>
 <meta name="description" content="Most free trials are designed to convert you into a paying subscriber without you noticing. Learn the psychology behind free trials and how to protect yourself.">
 <meta property="og:title" content="Free Trial to Paid: How Companies Quietly Start Charging You">
 <meta property="og:description" content="Most free trials are designed to convert you into a paying subscriber without you noticing. Learn how to protect yourself.">
@@ -11,72 +11,67 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F50D;</text></svg>">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:rgba(255,255,255,.06);--text:#ccc;--text2:#888;--blue:#3b82f6;--red:#ef4444;--blue-glow:0 0 40px rgba(59,130,246,.3)}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--blue);text-decoration:none;transition:color .2s}
-a:hover{color:#60a5fa}
+:root{--cream:#f5f0e8;--white:#fffdf9;--black:#111;--red:#c41e1e;--gray:#666;--light-gray:#999;--serif:Georgia,'Times New Roman',Times,serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--cream);color:var(--black);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--black);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--red)}
 
-.bg-grid{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0}
-.bg-aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.bg-aurora::before,.bg-aurora::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:.15;animation:aurora 12s ease-in-out infinite alternate}
-.bg-aurora::before{background:var(--blue);top:-200px;left:-100px}
-.bg-aurora::after{background:var(--red);bottom:-200px;right:-100px;animation-delay:-6s}
-@keyframes aurora{0%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,40px) scale(1.2)}100%{transform:translate(-40px,80px) scale(.9)}}
+nav{padding:0 32px;border-bottom:1px solid var(--black)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--gray);font-size:.8rem;font-weight:500;text-decoration:none;letter-spacing:.03em;text-transform:uppercase}
+.nav-links a:hover{color:var(--black)}
+.nav-cta{background:var(--black);color:var(--cream) !important;padding:8px 20px;font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--red);color:#fff !important}
+.mobile-toggle{display:none;background:none;border:none;color:var(--black);font-size:1.4rem;cursor:pointer}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,.7);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-weight:700;font-size:1.25rem;display:flex;align-items:center;gap:8px;color:#fff}
-.logo svg{width:28px;height:28px}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{color:var(--text2);font-size:.875rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:#fff}
-.nav-links a.active{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:10px;font-weight:600;font-size:.875rem;border:none;cursor:pointer;transition:all .25s}
-.btn-primary{background:var(--blue);color:#fff;box-shadow:var(--blue-glow)}
-.btn-primary:hover{background:#2563eb;box-shadow:0 0 60px rgba(59,130,246,.45);transform:translateY(-1px)}
-.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
-
-article{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:120px 24px 60px}
-.article-meta{font-size:.8rem;color:var(--text2);margin-bottom:32px}
-article h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
-article h2{font-size:1.3rem;color:#fff;margin:48px 0 16px;font-weight:700}
-article h3{font-size:1.1rem;color:#fff;margin:32px 0 12px;font-weight:700}
-article p{font-size:.925rem;margin-bottom:16px;line-height:1.8}
+article{max-width:700px;margin:0 auto;padding:80px 24px 60px}
+.article-dateline{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light-gray);margin-bottom:8px}
+.article-byline{font-size:.8rem;color:var(--gray);margin-bottom:32px;font-style:italic}
+article h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+.rule{width:60px;height:1px;background:var(--black);margin-bottom:32px}
+.drop-cap::first-letter{font-family:var(--serif);float:left;font-size:4.5rem;line-height:.75;font-weight:900;margin-right:12px;margin-top:6px;color:var(--red)}
+article h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin:48px 0 16px;color:var(--black)}
+article h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;margin:32px 0 12px;color:var(--black)}
+article p{font-size:.95rem;margin-bottom:16px;line-height:1.8;color:#333}
 article ul,article ol{padding-left:24px;margin-bottom:16px}
-article li{font-size:.925rem;margin-bottom:8px;line-height:1.7}
-article blockquote{border-left:3px solid var(--blue);padding:16px 24px;margin:32px 0;background:rgba(59,130,246,.04);border-radius:0 12px 12px 0;font-style:italic;color:#ddd}
-article strong{color:#ddd}
+article li{font-size:.95rem;margin-bottom:8px;line-height:1.7;color:#333}
+article strong{color:var(--black)}
+.pull-quote{font-family:var(--serif);font-size:1.5rem;font-style:italic;color:var(--black);text-align:center;padding:40px 0;border-top:1px solid var(--black);border-bottom:1px solid var(--black);margin:40px 0;line-height:1.4}
+.section-num{font-family:var(--serif);font-size:.85rem;color:var(--light-gray);letter-spacing:.05em;margin-bottom:4px}
 
-.share-section{margin:48px 0;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.share-section h3{font-size:.9rem;color:#fff;margin-bottom:12px}
+.share-section{margin:48px 0;padding:24px 0;border-top:1px solid var(--black);border-bottom:1px solid var(--black)}
+.share-section h3{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--black);margin-bottom:12px}
 .share-links{display:flex;gap:12px}
-.share-links a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:.8rem;font-weight:600;border:1px solid var(--border);color:var(--text);transition:all .2s}
-.share-links a:hover{border-color:rgba(59,130,246,.3);color:#fff;background:rgba(255,255,255,.04)}
+.share-links a{display:inline-flex;align-items:center;padding:8px 16px;font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--black);color:var(--black);text-decoration:none;transition:all .2s}
+.share-links a:hover{background:var(--black);color:var(--cream)}
 
-.related{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 24px 40px}
-.related h3{font-size:1.1rem;color:#fff;margin-bottom:20px;font-weight:700}
-.related-grid{display:grid;gap:16px}
-.related-card{display:block;padding:20px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.02);transition:all .25s;text-decoration:none}
-.related-card:hover{border-color:rgba(59,130,246,.2);background:rgba(255,255,255,.04)}
-.related-card .r-title{font-size:.9rem;color:#fff;font-weight:600;margin-bottom:4px}
-.related-card .r-meta{font-size:.75rem;color:var(--text2)}
+.related{max-width:700px;margin:0 auto;padding:0 24px 40px}
+.related h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;margin-bottom:20px}
+.related-grid{display:grid;gap:0}
+.related-card{display:block;padding:16px 0;border-bottom:1px solid #ccc;text-decoration:none}
+.related-card:last-child{border-bottom:none}
+.related-card:hover .r-title{color:var(--red)}
+.related-card .r-title{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--black);margin-bottom:2px}
+.related-card .r-meta{font-size:.7rem;color:var(--light-gray);letter-spacing:.05em;text-transform:uppercase}
 
-.cta-banner{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 24px 60px}
-.cta-box{padding:48px 32px;border-radius:20px;background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(239,68,68,.05));border:1px solid rgba(59,130,246,.15);text-align:center}
-.cta-box h2{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:8px}
-.cta-box p{color:var(--text2);margin-bottom:24px;font-size:.9rem}
-.cta-box .btn-primary{font-size:.9rem;padding:12px 28px;border-radius:10px}
+.cta-banner{max-width:700px;margin:0 auto;padding:0 24px 60px}
+.cta-box{padding:48px 32px;border:1px solid var(--black);text-align:center}
+.cta-box h2{font-family:var(--serif);font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.cta-box p{color:var(--gray);margin-bottom:24px;font-size:.9rem}
+.btn{display:inline-block;background:var(--black);color:var(--cream);padding:12px 32px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--red);color:#fff}
 
-footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48px 24px;max-width:1200px;margin:0 auto}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
-.footer-links{display:flex;gap:24px;list-style:none}
-.footer-links a{color:var(--text2);font-size:.8rem}
-.footer-links a:hover{color:#fff}
-.footer-note{font-size:.75rem;color:#555}
+footer{border-top:1px solid var(--black);padding:32px 24px;max-width:1200px;margin:0 auto}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-note{font-size:.7rem;color:var(--light-gray);font-family:var(--serif)}
+.footer-links{display:flex;gap:20px;list-style:none}
+.footer-links a{color:var(--light-gray);font-size:.7rem;text-decoration:none;letter-spacing:.03em;text-transform:uppercase}
+.footer-links a:hover{color:var(--black)}
 
 @media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);padding:24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:var(--cream);padding:24px 32px;gap:16px;border-bottom:1px solid var(--black);z-index:100}
   .nav-links.open{display:flex}
   .mobile-toggle{display:block}
   .footer-inner{flex-direction:column;text-align:center}
@@ -84,86 +79,87 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48
 </style>
 </head>
 <body>
-<div class="bg-grid"></div>
-<div class="bg-aurora"></div>
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="logo">
-      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg>
-      SubSnitch
-    </a>
+    <a href="/" class="logo">SubSnitch</a>
     <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
     <ul class="nav-links">
-      <li><a href="/#features">Features</a></li>
-      <li><a href="/#how-it-works">How it Works</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="/about.html">About</a></li>
       <li><a href="/feedback.html">Feedback</a></li>
-      <li><a href="/blog/" class="active">Blog</a></li>
-      <li><a href="https://chromewebstore.google.com" class="btn btn-primary">Add to Chrome</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="https://chromewebstore.google.com" class="nav-cta">Add to Chrome</a></li>
     </ul>
   </div>
 </nav>
 
 <article>
+  <div class="article-dateline">Expose &middot; March 5, 2026 &middot; 4 min read</div>
   <h1>Free Trial to Paid: How Companies Quietly Start Charging You</h1>
-  <div class="article-meta">March 5, 2026 &middot; 4 min read</div>
+  <div class="article-byline">By the SubSnitch Investigative Team</div>
+  <div class="rule"></div>
 
-  <p>Everyone loves a free trial. Try before you buy, no risk, cancel anytime. Except that's not quite how it works in practice. For most companies offering free trials, the "free" part is simply the first step in a carefully designed conversion funnel — one that's optimized to make sure you never cancel.</p>
+  <p class="drop-cap">Everyone loves a free trial. Try before you buy, no risk, cancel anytime. Except that is not quite how it works in practice. For most companies offering free trials, the "free" part is simply the first step in a carefully designed conversion funnel &mdash; one that is optimized to make sure you never cancel.</p>
 
+  <div class="section-num">I.</div>
   <h2>The Psychology Behind Free Trials</h2>
 
   <p>Free trials exploit several well-documented cognitive biases:</p>
 
-  <p><strong>The endowment effect.</strong> Once you start using a product, you begin to feel like it's "yours." Research shows that people value things more highly once they possess them. After a week of using a premium streaming service, going back to the free tier feels like losing something — even though you never paid for it.</p>
+  <p><strong>The endowment effect.</strong> Once you start using a product, you begin to feel like it is "yours." Research shows that people value things more highly once they possess them. After a week of using a premium streaming service, going back to the free tier feels like losing something &mdash; even though you never paid for it.</p>
 
   <p><strong>Status quo bias.</strong> People overwhelmingly prefer to keep things the way they are. Doing nothing (letting the trial convert) requires zero effort. Cancelling requires action: finding the settings page, clicking through confirmation screens, and actively giving something up. Most people default to inaction.</p>
 
   <p><strong>Sunk cost fallacy.</strong> Even though the trial was free, you invested time setting up your account, customizing preferences, building playlists, or uploading data. Cancelling feels like wasting that investment, even though the time is already spent regardless.</p>
 
-  <p>Companies know this. They've studied the behavioral science, and they've designed their trial flows to maximize conversion from free to paid.</p>
+  <p>Companies know this. They have studied the behavioral science, and they have designed their trial flows to maximize conversion from free to paid.</p>
 
+  <div class="pull-quote">"If the product is free, and they are asking for your credit card, you are the product &mdash; or at least, your future subscription payment is."</div>
+
+  <div class="section-num">II.</div>
   <h2>How the Conversion Machine Works</h2>
 
   <h3>Step 1: Require Payment Upfront</h3>
   <p>The most critical piece of the puzzle: collect your credit card before the trial begins. The stated reason is "verification" or to provide a "seamless experience." The real reason is that it removes the biggest barrier to conversion. If you have to enter payment details after the trial, the conversion rate drops dramatically. With a card already on file, the company just starts charging.</p>
 
   <h3>Step 2: Make the Trial Short Enough to Forget</h3>
-  <p>Three-day and seven-day trials are popular because they're short enough that many people forget to cancel. By the time you remember you signed up, the first charge has already hit. Longer trials (30 days) convert at lower rates because people have more time to evaluate and decide to cancel.</p>
+  <p>Three-day and seven-day trials are popular because they are short enough that many people forget to cancel. By the time you remember you signed up, the first charge has already hit. Longer trials (30 days) convert at lower rates because people have more time to evaluate and decide to cancel.</p>
 
   <h3>Step 3: Skip the Reminder</h3>
-  <p>Some companies send a reminder before the trial ends. Many don't. Those that do often send it buried in a marketing email that looks like every other promotional message — easy to miss, easy to archive without reading. The absence of a clear, prominent reminder is a deliberate choice.</p>
+  <p>Some companies send a reminder before the trial ends. Many do not. Those that do often send it buried in a marketing email that looks like every other promotional message &mdash; easy to miss, easy to archive without reading. The absence of a clear, prominent reminder is a deliberate choice.</p>
 
   <h3>Step 4: Make Cancellation Difficult</h3>
-  <p>Once you realize you're being charged, the cancellation flow is designed to slow you down. Multiple confirmation pages, retention offers, guilt-tripping copy ("Are you sure? You'll lose all your data"), or — in the worst cases — requiring a phone call to a retention team that's only available during limited hours.</p>
+  <p>Once you realize you are being charged, the cancellation flow is designed to slow you down. Multiple confirmation pages, retention offers, guilt-tripping copy ("Are you sure? You'll lose all your data"), or &mdash; in the worst cases &mdash; requiring a phone call to a retention team that is only available during limited hours.</p>
 
+  <div class="section-num">III.</div>
   <h2>The Numbers Don't Lie</h2>
 
-  <p>A study by the Waterstone Management Group found that <strong>48% of consumers have forgotten to cancel a free trial</strong> and been charged for a subscription they didn't want. Among younger consumers (18-34), the number was even higher at 59%.</p>
+  <p>A study by the Waterstone Management Group found that <strong>48% of consumers have forgotten to cancel a free trial</strong> and been charged for a subscription they did not want. Among younger consumers (18-34), the number was even higher at 59%.</p>
 
-  <p>The same study found that the average American spends <strong>$133 per month on subscriptions</strong> they've forgotten about or no longer use. That's nearly $1,600 per year in wasted money — money that companies count on collecting.</p>
+  <p>The same study found that the average American spends <strong>$133 per month on subscriptions</strong> they have forgotten about or no longer use. That is nearly $1,600 per year in wasted money &mdash; money that companies count on collecting.</p>
 
-  <p>For companies, trial-to-paid conversion is a key business metric. SaaS companies typically see conversion rates between 15% and 30%, but some of that conversion is involuntary — people who forgot to cancel, not people who chose to stay.</p>
+  <p>For companies, trial-to-paid conversion is a key business metric. SaaS companies typically see conversion rates between 15% and 30%, but some of that conversion is involuntary &mdash; people who forgot to cancel, not people who chose to stay.</p>
 
+  <div class="section-num">IV.</div>
   <h2>Real Examples</h2>
 
   <p><strong>Streaming services.</strong> Nearly every major streaming platform uses the free trial conversion model. You sign up for a 7-day trial of a premium tier, enjoy the ad-free experience, and then $15.99/month starts appearing on your credit card statement. The cancellation option is buried in account settings, not the main navigation.</p>
 
-  <p><strong>SaaS tools.</strong> Project management, design, and productivity tools routinely offer 14-day free trials that require a credit card. When the trial ends, you're automatically enrolled in the most expensive plan tier. Downgrading to a cheaper plan is a separate, multi-step process.</p>
+  <p><strong>SaaS tools.</strong> Project management, design, and productivity tools routinely offer 14-day free trials that require a credit card. When the trial ends, you are automatically enrolled in the most expensive plan tier. Downgrading to a cheaper plan is a separate, multi-step process.</p>
 
-  <p><strong>Mobile apps.</strong> App Store and Google Play subscriptions are particularly insidious. A game or utility app offers a "3-day free trial" with a tiny "then $9.99/week" label. That's $520/year for an app you tried once. Cancelling requires navigating to your phone's subscription settings, not the app itself — and many users don't know where to find that.</p>
+  <p><strong>Mobile apps.</strong> App Store and Google Play subscriptions are particularly insidious. A game or utility app offers a "3-day free trial" with a tiny "then $9.99/week" label. That is $520/year for an app you tried once. Cancelling requires navigating to your phone's subscription settings, not the app itself &mdash; and many users do not know where to find that.</p>
 
+  <div class="section-num">V.</div>
   <h2>How to Protect Yourself</h2>
 
   <ul>
     <li><strong>Set a calendar reminder immediately</strong> when you sign up for any trial. Set it for 1-2 days before the trial ends, not on the end date.</li>
     <li><strong>Use a virtual credit card</strong> with a low spending limit. Services like Privacy.com let you set a $1 limit, so the charge will be declined when the trial converts.</li>
-    <li><strong>Screenshot the cancellation page</strong> before you sign up. If you can't easily find how to cancel before starting the trial, that's a red flag.</li>
+    <li><strong>Screenshot the cancellation page</strong> before you sign up. If you cannot easily find how to cancel before starting the trial, that is a red flag.</li>
     <li><strong>Check your subscriptions monthly.</strong> On iPhone, go to Settings &gt; Apple ID &gt; Subscriptions. On Android, open Google Play &gt; Payments &amp; subscriptions. Review every active subscription.</li>
-    <li><strong>Use SubSnitch.</strong> SubSnitch scans checkout and sign-up pages in real time, warning you about free trials that auto-convert to expensive subscriptions. It catches the fine print so you don't have to.</li>
+    <li><strong>Use SubSnitch.</strong> SubSnitch scans checkout and sign-up pages in real time, warning you about free trials that auto-convert to expensive subscriptions. It catches the fine print so you do not have to.</li>
   </ul>
-
-  <blockquote>"If the product is free, and they're asking for your credit card, you are the product — or at least, your future subscription payment is."</blockquote>
 
   <div class="share-section">
     <h3>Share this article</h3>
@@ -196,16 +192,13 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48
   <div class="cta-box">
     <h2>Protect yourself from subscription traps</h2>
     <p>Add SubSnitch to Chrome and get alerted before you get charged.</p>
-    <a href="https://chromewebstore.google.com" class="btn btn-primary">Add SubSnitch to Chrome</a>
+    <a href="https://chromewebstore.google.com" class="btn">Add SubSnitch to Chrome</a>
   </div>
 </div>
 
 <footer>
   <div class="footer-inner">
-    <div class="logo" style="font-size:1rem">
-      <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#3b82f6" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#3b82f6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/></svg>
-      SubSnitch
-    </div>
+    <div class="footer-note">&copy; 2026 SubSnitch</div>
     <ul class="footer-links">
       <li><a href="/privacy.html">Privacy</a></li>
       <li><a href="/about.html">About</a></li>
@@ -213,7 +206,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48
       <li><a href="/blog/">Blog</a></li>
       <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
     </ul>
-    <div class="footer-note">Built with privacy in mind. No data ever leaves your browser.</div>
   </div>
 </footer>
 </body>
