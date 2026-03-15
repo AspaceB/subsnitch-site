@@ -1,0 +1,61 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2026-03-15T00:00:00Z",
+  "offenders": [
+    {
+      "domain": "amazon.com",
+      "pattern": "prime",
+      "description": "Amazon Prime auto-enrolled during checkout"
+    },
+    {
+      "domain": "adobe.com",
+      "pattern": "subscription",
+      "description": "Early termination fees not disclosed upfront (DOJ litigation)"
+    },
+    {
+      "domain": "match.com",
+      "pattern": "membership",
+      "description": "FTC settlement — deceptive subscription practices"
+    },
+    {
+      "domain": "chegg.com",
+      "pattern": "subscription",
+      "description": "FTC action — confusing cancellation"
+    },
+    {
+      "domain": "angi.com",
+      "pattern": "membership",
+      "description": "Auto-enrolled membership complaints"
+    },
+    {
+      "domain": "audible.com",
+      "pattern": "credits",
+      "description": "Rollover credit confusion during trial"
+    },
+    {
+      "domain": "nytimes.com",
+      "pattern": "subscription",
+      "description": "Aggressive paywall-to-subscription conversion"
+    },
+    {
+      "domain": "hulu.com",
+      "pattern": "add-on",
+      "description": "Add-on charges not clearly disclosed"
+    },
+    {
+      "domain": "planet-fitness.com",
+      "pattern": "membership",
+      "description": "Notoriously difficult cancellation process"
+    },
+    {
+      "domain": "siriusxm.com",
+      "pattern": "subscription",
+      "description": "FTC complaints about cancellation difficulty"
+    },
+    {
+      "domain": "mcafee.com",
+      "pattern": "renewal",
+      "description": "Auto-renewal complaints and deceptive renewal practices"
+    }
+  ]
+}
