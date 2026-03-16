@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Review &mdash; SubSnitch</title>
+<meta name="description" content="If you are a website owner and believe your site has been incorrectly flagged by SubSnitch, you can request a review here.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F50D;</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f5f0e8;--black:#111;--red:#c41e1e;--gray:#666;--light-gray:#999;--serif:Georgia,'Times New Roman',Times,serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--cream);color:var(--black);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--black);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--red)}
+nav{padding:0 32px;border-bottom:1px solid var(--black)}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-right{display:flex;gap:20px;align-items:center}
+.nav-right a{color:var(--gray);font-size:.8rem;text-decoration:none;letter-spacing:.03em;text-transform:uppercase}
+.nav-right a:hover{color:var(--black)}
+
+main{max-width:600px;margin:0 auto;padding:80px 24px 60px}
+.dateline{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light-gray);margin-bottom:8px}
+h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+.subtitle{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gray);margin-bottom:32px}
+.rule{width:60px;height:1px;background:var(--black);margin-bottom:32px}
+
+.intro{font-size:.9rem;color:var(--gray);margin-bottom:32px;line-height:1.8}
+.intro strong{color:var(--black)}
+
+.form-group{margin-bottom:28px}
+.form-group label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.form-group .optional{color:var(--light-gray);font-weight:400}
+.form-group .hint{display:block;font-size:.75rem;color:var(--light-gray);margin-top:4px;font-style:italic}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea{width:100%;padding:10px 0;border:none;border-bottom:1px solid var(--black);background:transparent;color:var(--black);font-size:.9rem;font-family:var(--sans);transition:border-color .2s;outline:none}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-bottom-color:var(--red)}
+.form-group select{appearance:none;border-radius:0;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23111' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0 center}
+.form-group textarea{resize:vertical;min-height:140px;border:none;border-bottom:1px solid var(--black)}
+
+.btn{display:block;width:100%;background:var(--black);color:var(--cream);padding:14px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:var(--sans);transition:background .2s}
+.btn:hover{background:var(--red);color:#fff}
+
+.note{margin-top:24px;padding:20px;border:1px solid #ddd;font-size:.75rem;color:var(--gray);text-align:center;font-style:italic;line-height:1.7}
+
+.criteria{margin-top:48px;padding-top:32px;border-top:1px solid var(--black)}
+.criteria h2{font-family:var(--serif);font-size:1.2rem;font-weight:900;margin-bottom:16px}
+.criteria p{font-size:.85rem;color:var(--gray);margin-bottom:12px;line-height:1.8}
+.criteria ol{padding-left:20px;font-size:.85rem;color:var(--gray);line-height:1.8;margin-bottom:16px}
+.criteria li{margin-bottom:8px}
+
+footer{border-top:1px solid var(--black);padding:40px 32px;margin-top:60px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-note{font-size:.75rem;color:var(--light-gray)}
+.footer-links{list-style:none;display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--gray);font-size:.75rem;text-decoration:none;letter-spacing:.03em}
+.footer-links a:hover{color:var(--black)}
+.footer-small{width:100%;font-size:.7rem;color:var(--light-gray);margin-top:8px;text-align:center}
+
+@media(max-width:600px){
+  nav{padding:0 16px}
+  main{padding:48px 16px 40px}
+}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="/" class="logo">SubSnitch</a>
+  <div class="nav-right">
+    <a href="report.html">Report a Trap</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="blog/">Blog</a>
+    <a href="/">&larr; Home</a>
+  </div>
+</div></nav>
+
+<main>
+<div class="dateline">Dispute &middot; SubSnitch</div>
+<h1>Request a Review</h1>
+<p class="subtitle">If you are a website owner and believe your site has been incorrectly flagged by SubSnitch, you can request a review here.</p>
+<div class="rule"></div>
+
+<form action="https://formspree.io/f/maqpdboq" method="POST">
+  <input type="hidden" name="form_type" value="dispute_request">
+  <input type="hidden" name="_subject" value="[SubSnitch] Dispute Request">
+
+  <div class="form-group">
+    <label>Your Name <span style="color:var(--red)">*</span></label>
+    <input type="text" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label>Your Email <span style="color:var(--red)">*</span></label>
+    <input type="email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label>Company / Organization <span style="color:var(--red)">*</span></label>
+    <input type="text" name="company" required>
+  </div>
+
+  <div class="form-group">
+    <label>Website Domain Being Disputed <span style="color:var(--red)">*</span></label>
+    <input type="text" name="domain" placeholder="e.g. example.com" required>
+  </div>
+
+  <div class="form-group">
+    <label>Your Role <span style="color:var(--red)">*</span></label>
+    <select name="role" required>
+      <option value="" disabled selected>Select your role</option>
+      <option value="Website Owner">Website Owner</option>
+      <option value="Legal Representative">Legal Representative</option>
+      <option value="Compliance Officer">Compliance Officer</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Reason for Dispute <span style="color:var(--red)">*</span></label>
+    <textarea name="reason" placeholder="Please explain why you believe the flagging is incorrect. Include any changes you've made to your checkout flow, cancellation process, or billing disclosure." required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Supporting Documentation URL <span class="optional">(optional)</span></label>
+    <input type="url" name="documentation_url" placeholder="https://...">
+    <span class="hint">Link to any supporting evidence or documentation</span>
+  </div>
+
+  <button type="submit" class="btn">Submit Dispute Request</button>
+</form>
+
+<div class="note">We review all dispute requests within 5 business days. If your site's practices have changed, we will update our database accordingly. We are committed to accuracy and fairness.</div>
+
+<div class="criteria">
+  <h2>Our Flagging Criteria</h2>
+  <p>Our flagging criteria are based on:</p>
+  <ol>
+    <li>Automated detection of subscription-related language patterns</li>
+    <li>Publicly available regulatory actions (FTC, DOJ, CFPB)</li>
+    <li>Community reports verified by our team</li>
+  </ol>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">&copy; 2026 SubSnitch</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="report.html">Report a Trap</a></li>
+      <li><a href="dispute.html">Dispute a Flagging</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
+    </ul>
+    <div class="footer-small">Built with privacy in mind. No data ever leaves your browser.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -5,57 +5,68 @@
     {
       "domain": "amazon.com",
       "pattern": "prime",
-      "description": "Amazon Prime auto-enrolled during checkout"
+      "description": "Amazon Prime auto-enrolled during checkout",
+      "source": "FTC complaint 2024 — deceptive Prime enrollment practices"
     },
     {
       "domain": "adobe.com",
       "pattern": "subscription",
-      "description": "Early termination fees not disclosed upfront (DOJ litigation)"
+      "description": "Early termination fees not disclosed upfront (DOJ litigation)",
+      "source": "DOJ lawsuit 2024 — hidden early termination fees"
     },
     {
       "domain": "match.com",
       "pattern": "membership",
-      "description": "FTC settlement — deceptive subscription practices"
+      "description": "FTC settlement — deceptive subscription practices",
+      "source": "FTC v. Match Group, Case No. 3:19-cv-02281 (2019)"
     },
     {
       "domain": "chegg.com",
       "pattern": "subscription",
-      "description": "FTC action — confusing cancellation"
+      "description": "FTC action — confusing cancellation",
+      "source": "FTC enforcement action 2023 — dark pattern cancellation"
     },
     {
       "domain": "angi.com",
       "pattern": "membership",
-      "description": "Auto-enrolled membership complaints"
+      "description": "Auto-enrolled membership complaints",
+      "source": "Consumer Financial Protection Bureau complaints"
     },
     {
       "domain": "audible.com",
       "pattern": "credits",
-      "description": "Rollover credit confusion during trial"
+      "description": "Rollover credit confusion during trial",
+      "source": "Consumer reports — confusing trial credit rollover"
     },
     {
       "domain": "nytimes.com",
       "pattern": "subscription",
-      "description": "Aggressive paywall-to-subscription conversion"
+      "description": "Aggressive paywall-to-subscription conversion",
+      "source": "Consumer complaints — aggressive conversion tactics"
     },
     {
       "domain": "hulu.com",
       "pattern": "add-on",
-      "description": "Add-on charges not clearly disclosed"
+      "description": "Add-on charges not clearly disclosed",
+      "source": "Consumer complaints — undisclosed add-on charges"
     },
     {
       "domain": "planet-fitness.com",
       "pattern": "membership",
-      "description": "Notoriously difficult cancellation process"
+      "description": "Notoriously difficult cancellation process",
+      "source": "Consumer complaints — onerous cancellation requirements"
     },
     {
       "domain": "siriusxm.com",
       "pattern": "subscription",
-      "description": "FTC complaints about cancellation difficulty"
+      "description": "FTC complaints about cancellation difficulty",
+      "source": "FTC complaints — difficult cancellation process"
     },
     {
       "domain": "mcafee.com",
       "pattern": "renewal",
-      "description": "Auto-renewal complaints and deceptive renewal practices"
+      "description": "Auto-renewal complaints and deceptive renewal practices",
+      "source": "Consumer complaints — deceptive auto-renewal practices"
     }
   ]
 }
