@@ -21,6 +21,13 @@ body{background:var(--cream);color:var(--black);font-family:var(--sans);display:
 .contact{margin-top:48px;font-size:.75rem;color:var(--light-gray)}
 .contact a{color:var(--light-gray)}
 .contact a:hover{color:var(--black)}
+footer{border-top:1px solid var(--black);padding:40px 32px;margin-top:60px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-note{font-size:.75rem;color:var(--light-gray)}
+.footer-links{list-style:none;display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--gray);font-size:.75rem;text-decoration:none;letter-spacing:.03em}
+.footer-links a:hover{color:var(--black)}
+.footer-small{width:100%;font-size:.7rem;color:var(--light-gray);margin-top:8px;text-align:center}
 </style>
 </head>
 <body>
@@ -34,5 +41,19 @@ body{background:var(--cream);color:var(--black);font-family:var(--sans);display:
   </div>
   <p class="contact">Need help? <a href="mailto:subsnitch@gmail.com">subsnitch@gmail.com</a></p>
 </div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">&copy; 2026 SubSnitch</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="report.html">Report a Trap</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
+    </ul>
+    <div class="footer-small">Built with privacy in mind. No data ever leaves your browser.</div>
+  </div>
+</footer>
 </body>
 </html>

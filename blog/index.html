@@ -41,12 +41,13 @@ nav{padding:0 32px;border-bottom:1px solid var(--black)}
 .blog-card .excerpt{font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:16px}
 .blog-card .read-more{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);text-decoration:none}
 
-footer{padding:32px;max-width:1200px;margin:0 auto}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-note{font-size:.7rem;color:var(--light-gray);font-family:var(--serif)}
-.footer-links{display:flex;gap:20px;list-style:none}
-.footer-links a{color:var(--light-gray);font-size:.7rem;text-decoration:none;letter-spacing:.03em;text-transform:uppercase}
+footer{border-top:1px solid var(--black);padding:40px 32px;margin-top:60px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-note{font-size:.75rem;color:var(--light-gray)}
+.footer-links{list-style:none;display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--gray);font-size:.75rem;text-decoration:none;letter-spacing:.03em}
 .footer-links a:hover{color:var(--black)}
+.footer-small{width:100%;font-size:.7rem;color:var(--light-gray);margin-top:8px;text-align:center}
 
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -121,8 +122,11 @@ footer{padding:32px;max-width:1200px;margin:0 auto}
       <li><a href="/privacy.html">Privacy</a></li>
       <li><a href="/about.html">About</a></li>
       <li><a href="/feedback.html">Feedback</a></li>
+      <li><a href="/report.html">Report a Trap</a></li>
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
     </ul>
+    <div class="footer-small">Built with privacy in mind. No data ever leaves your browser.</div>
   </div>
 </footer>
 

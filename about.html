@@ -44,9 +44,13 @@ strong{color:var(--black)}
 .btn{display:inline-block;background:var(--black);color:var(--cream);padding:12px 32px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .btn:hover{background:var(--red);color:#fff}
 
-footer{border-top:1px solid var(--black);padding:24px;text-align:center;font-size:.7rem;color:var(--light-gray);max-width:800px;margin:0 auto}
-footer a{color:var(--light-gray);text-decoration:none}
-footer a:hover{color:var(--black)}
+footer{border-top:1px solid var(--black);padding:40px 32px;margin-top:60px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-note{font-size:.75rem;color:var(--light-gray)}
+.footer-links{list-style:none;display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--gray);font-size:.75rem;text-decoration:none;letter-spacing:.03em}
+.footer-links a:hover{color:var(--black)}
+.footer-small{width:100%;font-size:.7rem;color:var(--light-gray);margin-top:8px;text-align:center}
 @media(max-width:600px){.stat-row{grid-template-columns:1fr}.stat-item{border-right:none;border-bottom:1px solid var(--black)}.stat-item:last-child{border-bottom:none}}
 </style>
 </head>
@@ -104,6 +108,19 @@ footer a:hover{color:var(--black)}
 </div>
 </main>
 
-<footer>&copy; 2026 SubSnitch &middot; <a href="privacy.html">Privacy</a> &middot; <a href="feedback.html">Feedback</a> &middot; <a href="mailto:subsnitch@gmail.com">subsnitch@gmail.com</a></footer>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">&copy; 2026 SubSnitch</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="report.html">Report a Trap</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
+    </ul>
+    <div class="footer-small">Built with privacy in mind. No data ever leaves your browser.</div>
+  </div>
+</footer>
 </body>
 </html>
