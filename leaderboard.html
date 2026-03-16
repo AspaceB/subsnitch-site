@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wall of Shame &mdash; SubSnitch</title>
+<meta name="description" content="The worst subscription trap offenders flagged by SubSnitch users. See which sites are most reported for dark patterns and hidden charges.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F50D;</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f5f0e8;--white:#fffdf9;--black:#111;--red:#c41e1e;--gray:#666;--light-gray:#999;--rule:#111;--serif:Georgia,'Times New Roman',Times,serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--cream);color:var(--black);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--black);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+a:hover{color:var(--red)}
+
+/* Nav */
+nav{padding:0 32px;border-bottom:1px solid var(--black)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--gray);font-size:.8rem;font-weight:500;text-decoration:none;letter-spacing:.03em;text-transform:uppercase}
+.nav-links a:hover{color:var(--black)}
+.nav-cta{background:var(--black);color:var(--cream) !important;padding:8px 20px;font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--red);color:#fff !important}
+.mobile-toggle{display:none;background:none;border:none;color:var(--black);font-size:1.4rem;cursor:pointer}
+
+/* Page Header */
+.page-header{max-width:800px;margin:0 auto;padding:80px 32px 40px;text-align:center;border-bottom:1px solid var(--black)}
+.dateline{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light-gray);margin-bottom:12px}
+h1{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:var(--red);margin-bottom:12px}
+.subtitle{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--gray);max-width:500px;margin:0 auto;line-height:1.5}
+
+/* Leaderboard */
+.leaderboard{max-width:800px;margin:0 auto;padding:48px 32px 60px}
+.leaderboard-note{font-size:.8rem;color:var(--gray);line-height:1.7;margin-bottom:40px;padding:16px 20px;border:1px solid #ddd;font-style:italic;text-align:center}
+
+.offender-entry{display:flex;align-items:baseline;gap:20px;padding:20px 0;border-bottom:1px solid var(--black)}
+.offender-entry:first-child{border-top:1px solid var(--black)}
+.offender-rank{font-family:var(--serif);font-size:1.8rem;font-weight:900;color:var(--red);min-width:48px;text-align:right;line-height:1}
+.offender-rank span{font-size:.7rem;color:var(--light-gray);font-weight:400;vertical-align:super}
+.offender-info{flex:1}
+.offender-domain{font-family:var(--serif);font-size:1.1rem;font-weight:900;color:var(--black);display:block;margin-bottom:4px}
+.offender-desc{font-size:.85rem;color:var(--gray);line-height:1.6}
+.offender-source{font-size:.7rem;color:var(--light-gray);letter-spacing:.05em;text-transform:uppercase;margin-top:4px;display:block}
+
+/* CTA */
+.leaderboard-cta{margin-top:48px;text-align:center;padding:40px 24px;border:2px solid var(--black)}
+.leaderboard-cta h2{font-family:var(--serif);font-size:1.3rem;font-weight:900;margin-bottom:8px}
+.leaderboard-cta p{font-size:.9rem;color:var(--gray);margin-bottom:20px;font-style:italic}
+.cta-btn{display:inline-block;background:var(--black);color:var(--cream);padding:12px 28px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.cta-btn:hover{background:var(--red);color:#fff}
+
+/* Footer */
+footer{border-top:1px solid var(--black);padding:40px 32px;margin-top:60px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-note{font-size:.75rem;color:var(--light-gray)}
+.footer-links{list-style:none;display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--gray);font-size:.75rem;text-decoration:none;letter-spacing:.03em}
+.footer-links a:hover{color:var(--black)}
+.footer-small{width:100%;font-size:.7rem;color:var(--light-gray);margin-top:8px;text-align:center}
+
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:var(--cream);padding:24px 32px;gap:16px;border-bottom:1px solid var(--black);z-index:100}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+  .page-header{padding:60px 20px 32px}
+  .leaderboard{padding:32px 20px 40px}
+  .offender-entry{flex-direction:column;gap:4px}
+  .offender-rank{text-align:left;min-width:auto}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">SubSnitch</a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="report.html">Report a Trap</a></li>
+      <li><a href="leaderboard.html">Wall of Shame</a></li>
+      <li><a href="https://chromewebstore.google.com" class="nav-cta">Add to Chrome</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="dateline">Monthly Rankings &middot; Updated March 2026</div>
+  <h1>The Wall of Shame</h1>
+  <p class="subtitle">Sites most flagged by SubSnitch users for subscription traps, dark patterns, and deceptive billing.</p>
+</header>
+
+<main class="leaderboard">
+  <div class="leaderboard-note">This list is based on our known offender database and community reports. Rankings update monthly.</div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">1</div>
+    <div class="offender-info">
+      <span class="offender-domain">adobe.com</span>
+      <span class="offender-desc">Early termination fees not disclosed upfront. Users locked into annual contracts with steep penalties for cancelling.</span>
+      <span class="offender-source">Source: DOJ litigation</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">2</div>
+    <div class="offender-info">
+      <span class="offender-domain">amazon.com</span>
+      <span class="offender-desc">Prime membership auto-enrolled during checkout flow. Subscription added via pre-selected options buried in the purchase process.</span>
+      <span class="offender-source">Source: FTC complaint, community reports</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">3</div>
+    <div class="offender-info">
+      <span class="offender-domain">match.com</span>
+      <span class="offender-desc">Deceptive subscription practices including unclear auto-renewal terms and difficult cancellation.</span>
+      <span class="offender-source">Source: FTC settlement</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">4</div>
+    <div class="offender-info">
+      <span class="offender-domain">chegg.com</span>
+      <span class="offender-desc">Confusing cancellation process designed to retain subscribers who want to leave.</span>
+      <span class="offender-source">Source: FTC action</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">5</div>
+    <div class="offender-info">
+      <span class="offender-domain">planet-fitness.com</span>
+      <span class="offender-desc">Notoriously difficult cancellation requiring in-person visits or certified mail. Charges continue during cancellation attempts.</span>
+      <span class="offender-source">Source: Consumer complaints, community reports</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">6</div>
+    <div class="offender-info">
+      <span class="offender-domain">siriusxm.com</span>
+      <span class="offender-desc">Extremely difficult cancellation process with aggressive retention tactics and unclear billing terms.</span>
+      <span class="offender-source">Source: FTC complaints</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">7</div>
+    <div class="offender-info">
+      <span class="offender-domain">resume-now.com</span>
+      <span class="offender-desc">Hidden recurring subscription charges after initial resume download. Billing terms buried in fine print.</span>
+      <span class="offender-source">Source: Community reports</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">8</div>
+    <div class="offender-info">
+      <span class="offender-domain">mcafee.com</span>
+      <span class="offender-desc">Aggressive auto-renewal practices with charges appearing without clear prior notification.</span>
+      <span class="offender-source">Source: Consumer complaints</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">9</div>
+    <div class="offender-info">
+      <span class="offender-domain">angi.com</span>
+      <span class="offender-desc">Auto-enrolled membership with recurring charges not clearly disclosed during sign-up.</span>
+      <span class="offender-source">Source: Community reports</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">10</div>
+    <div class="offender-info">
+      <span class="offender-domain">audible.com</span>
+      <span class="offender-desc">Rollover credit confusion during trial period. Users charged after trial without clear warning.</span>
+      <span class="offender-source">Source: Community reports</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">11</div>
+    <div class="offender-info">
+      <span class="offender-domain">nytimes.com</span>
+      <span class="offender-desc">Aggressive paywall-to-subscription conversion with introductory pricing that escalates without clear notice.</span>
+      <span class="offender-source">Source: Community reports</span>
+    </div>
+  </div>
+
+  <div class="offender-entry">
+    <div class="offender-rank">12</div>
+    <div class="offender-info">
+      <span class="offender-domain">hulu.com</span>
+      <span class="offender-desc">Add-on charges not clearly disclosed. Bundled services auto-selected during checkout.</span>
+      <span class="offender-source">Source: Community reports</span>
+    </div>
+  </div>
+
+  <div class="leaderboard-cta">
+    <h2>Spotted a trap we missed?</h2>
+    <p>Help us hold these sites accountable. Every report strengthens the database for all users.</p>
+    <a href="report.html" class="cta-btn">Report a Subscription Trap</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">&copy; 2026 SubSnitch</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="report.html">Report a Trap</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="mailto:subsnitch@gmail.com">Contact</a></li>
+      <li><a href="dispute.html">Dispute a Flagging</a></li>
+    </ul>
+    <div class="footer-small">Built with privacy in mind. No data ever leaves your browser.</div>
+    <div class="footer-small">SubSnitch provides automated content analysis based on detected language patterns and public regulatory records. Flagging does not constitute an accusation of wrongdoing.</div>
+  </div>
+</footer>
+</body>
+</html>
